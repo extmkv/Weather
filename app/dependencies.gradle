@@ -1,0 +1,17 @@
+ext {
+    dependencies {
+
+        /* Kotlin */
+        implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinVersion"
+        implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+
+        /* Support Libraries */
+        implementation "com.android.support:appcompat-v7:$supportVersion"
+        implementation "com.android.support:design:$supportVersion"
+
+        /* Fabric */
+        compile("com.crashlytics.sdk.android:crashlytics:2.9.1@aar") {
+            transitive = true
+        }
+    }
+}

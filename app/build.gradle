@@ -1,0 +1,85 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'io.fabric'
+
+android {
+    flavorDimensions 'app'
+
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 27
+        multiDexEnabled true
+    }
+
+    /* Change the directory name to kotlin */
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    buildTypes {
+
+        prod {
+            initWith release
+
+            //signingConfig signingConfigs.release
+            debuggable false
+            manifestPlaceholders += [
+                    appIcon: "@mipmap/ic_launcher"
+            ]
+
+            buildConfigField "Boolean", "REPORT_CRASH", "true"
+        }
+
+        qa {
+            initWith debug
+            debuggable true
+            applicationIdSuffix ".qa"
+            versionNameSuffix "-QA"
+            manifestPlaceholders += [
+                    appIcon: "@drawable/ic_launcher_default"
+            ]
+
+            buildConfigField "Boolean", "REPORT_CRASH", "true"
+        }
+
+        dev {
+            initWith debug
+            debuggable true
+            applicationIdSuffix ".dev"
+            versionNameSuffix "-DEV"
+            manifestPlaceholders += [
+                    appIcon: "@drawable/ic_launcher_default"
+            ]
+
+            buildConfigField "Boolean", "REPORT_CRASH", "false"
+        }
+    }
+}
+
+/* Hide release and debug build types */
+android.variantFilter { variant ->
+    if (variant.buildType.name.endsWith('release') || variant.buildType.name.endsWith('debug')) {
+        variant.setIgnore(true)
+    }
+}
+/* Generate flavor applicationId to use in manifest, authenticator, etc. */
+afterEvaluate {
+    android.applicationVariants.all { variant ->
+        def mergedFlavor = variant.mergedFlavor
+        mergedFlavor.manifestPlaceholders += [
+                applicationIdWithSuffix: variant.applicationId
+        ]
+
+        resValue "string", "package_name", variant.applicationId
+    }
+}
+
+/* Apply dependencies */
+apply from: 'dependencies.gradle'
+
+/* Apply flavors */
+apply from: 'flavors.gradle'

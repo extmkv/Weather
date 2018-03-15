@@ -1,0 +1,27 @@
+android {
+    productFlavors {
+        app {
+            dimension "app"
+
+            def appName = "Weather"
+
+            applicationId "com.github.extmkv.weather"
+            versionCode 1
+            versionName "0.1.0"
+            
+            buildTypes {
+                dev {
+                    resValue "string", "app_name", appName + " DEV"
+                }
+
+                qa {
+                    resValue "string", "app_name", appName + " QA"
+                }
+
+                prod {
+                    resValue "string", "app_name", appName
+                }
+            }
+        }
+    }
+}
