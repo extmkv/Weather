@@ -8,7 +8,9 @@ android {
             applicationId "com.github.extmkv.weather"
             versionCode 1
             versionName "0.1.0"
-            
+
+            buildConfigField "Long", "SPLASH_TIMEOUT", "3000L"
+
             buildTypes {
                 dev {
                     resValue "string", "app_name", appName + " DEV"
