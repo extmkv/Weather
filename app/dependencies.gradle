@@ -19,5 +19,9 @@ ext {
 
         /* ADAL - Android Development Acceleration Library */
         implementation "com.massivedisaster.adal:adal-fragments:$adalVersion"
+        implementation "com.massivedisaster.widget:arctoolbarview:$arctoolbarVersion"
+
+        /* Loading */
+        implementation "com.victor:lib:$loadingVersion"
     }
 }
