@@ -7,6 +7,14 @@
     <dimen name="large_spacing">20dp</dimen>
     <dimen name="extra_large_spacing">30dp</dimen>
 
+    <dimen name="text_14">14sp</dimen>
+    <dimen name="text_24">24sp</dimen>
+    <dimen name="text_26">26sp</dimen>
+
     <dimen name="app_bar_height">180dp</dimen>
     <dimen name="loading_size">64dp</dimen>
+    <dimen name="dialog_weather_size">128dp</dimen>
+
+    <dimen name="btn_height">48dp</dimen>
+
 </resources>

@@ -15,4 +15,14 @@ class ActivityArcToolbar : BaseActivity() {
         setSupportActionBar(toolbar)
         arcToolbar.setAppBarLayout(appbar)
     }
+
+    /**
+     * Set the title to the CollapsingToolbarLayout.
+     *
+     * @param title The title to be setted.
+     */
+    override fun setTitle(title: CharSequence?) {
+        super.setTitle(title)
+        clpToolbarLayout.title = title
+    }
 }

@@ -13,7 +13,7 @@ abstract class FragmentMVP<T : BasePresenter<out BaseView>> : AbstractRequestFra
         presenter = createPresenter()
     }
 
-    override fun addRequest(callback: Call<*>) {
+    override fun addRequestCallback(callback: Call<*>) {
         addRequest(callback)
     }
 }

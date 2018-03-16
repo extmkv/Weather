@@ -1,3 +1,18 @@
 <resources>
     <string name="try_again">Try again</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="units_summary">Temperature is available in Fahrenheit, Celsius and Kelvin units.</string>
+    <string name="unit_format">Units format</string>
+    <string name="settings">Settings</string>
+    <string name="please_activate_your_location">Please, to continue, let your device turn on location.</string>
+    <string name="error_getting_your_location">Error getting your location</string>
+    <string name="error_grant_location_permission">Please, to continue grant location permission to get access to your position.</string>
+    <string name="pressure">Pressure</string>
+    <string name="humidity">Humidity</string>
+    <string name="wind">Wind</string>
+    <string name="sea_level">Sea Level</string>
+
+    <string name="kelvin">Kelvin</string>
+    <string name="fahrenheit">Fahrenheit</string>
+    <string name="celsius">Celsius</string>
 </resources>

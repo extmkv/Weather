@@ -9,7 +9,11 @@ android {
             versionCode 1
             versionName "0.1.0"
 
-            buildConfigField "Long", "SPLASH_TIMEOUT", "3000L"
+            buildConfigField "long", "SPLASH_TIMEOUT", "3000L"
+
+            buildConfigField "String", "API_URL", "\"https://api.openweathermap.org/data/2.5/\""
+            buildConfigField "String", "API_APPID", "\"7bd23be44c69269b1da1f940723152c6\""
+            buildConfigField "long", "API_TIMEOUT", "30"
 
             buildTypes {
                 dev {

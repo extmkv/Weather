@@ -8,6 +8,7 @@ ext {
         /* Support Libraries */
         implementation "com.android.support:appcompat-v7:$supportVersion"
         implementation "com.android.support:design:$supportVersion"
+        implementation "com.android.support:preference-v7:$supportVersion"
 
         /* Fabric */
         compile("com.crashlytics.sdk.android:crashlytics:2.9.1@aar") {
@@ -19,9 +20,19 @@ ext {
 
         /* ADAL - Android Development Acceleration Library */
         implementation "com.massivedisaster.adal:adal-fragments:$adalVersion"
+        implementation "com.massivedisaster.adal:adal-dialogs:$adalVersion"
+        implementation "com.massivedisaster.adal:adal-location:$adalVersion"
+
+        /* Arctoolbar */
         implementation "com.massivedisaster.widget:arctoolbarview:$arctoolbarVersion"
 
         /* Loading */
         implementation "com.victor:lib:$loadingVersion"
+
+        /* Lottie */
+        implementation "com.airbnb.android:lottie:$lottieVersion"
+
+        /* Faker */
+        implementation "com.github.cesarferreira:faker:$fakerVersion"
     }
 }

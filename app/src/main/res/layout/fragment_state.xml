@@ -1,40 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true">
 
-    <com.victor.loading.rotate.RotateLoading
-        android:id="@+id/rtlLoading"
-        android:layout_width="@dimen/loading_size"
-        android:layout_height="@dimen/loading_size"
-        android:layout_centerInParent="true"
-        app:loading_color="@color/colorAccent" />
+    <include layout="@layout/param_state_loading" />
 
-    <LinearLayout
-        android:id="@+id/lnrError"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="@dimen/extra_large_spacing"
-        android:visibility="gone">
-
-        <TextView
-            android:id="@+id/txtError"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center" />
-
-        <Button
-            android:id="@+id/btnRetry"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/large_spacing"
-            android:text="@string/try_again" />
-
-    </LinearLayout>
+    <include layout="@layout/param_state_error" />
 
     <FrameLayout
         android:id="@+id/frmStateContent"

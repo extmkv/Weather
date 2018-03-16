@@ -1,4 +1,4 @@
-package com.github.extmkv.weather.feature.state
+package com.github.extmkv.weather.base.state
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import com.github.extmkv.weather.R
 import com.github.extmkv.weather.base.mvp.FragmentMVP
 import kotlinx.android.synthetic.main.fragment_state.*
+import kotlinx.android.synthetic.main.param_state_error.*
+import kotlinx.android.synthetic.main.param_state_loading.*
 
 abstract class FragmentState<T : StateContract.Presenter<*>> : FragmentMVP<T>(), StateContract.View {
 
@@ -41,14 +43,17 @@ abstract class FragmentState<T : StateContract.Presenter<*>> : FragmentMVP<T>(),
     }
 
     override fun showContent() {
-        frmStateContent.visibility = View.VISIBLE
         rtlLoading.stop()
         lnrError.visibility = View.GONE
+        frmStateContent.visibility = View.VISIBLE
     }
 
-    override fun showError(error: Int, method: (() -> Unit)?) {
+    override fun showError(error: String, method: (() -> Unit)?) {
         lnrError.visibility = View.VISIBLE
         frmStateContent.visibility = View.GONE
         rtlLoading.stop()
+
+        txtError.text = error
+        btnRetry.setOnClickListener { method?.invoke() }
     }
 }

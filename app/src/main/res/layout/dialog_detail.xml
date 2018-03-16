@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bkg_dialog"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/large_spacing"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:id="@+id/imgWeather"
+            android:layout_width="@dimen/dialog_weather_size"
+            android:layout_height="@dimen/dialog_weather_size"
+            android:contentDescription="@null"
+            android:tint="@color/title" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/title"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_spacing"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/medium_spacing"
+                android:layout_marginStart="@dimen/medium_spacing"
+                android:layout_weight="50"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/pressure"
+                    android:textColor="@color/description"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtPressure"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/description_grey"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/medium_spacing"
+                android:layout_marginStart="@dimen/medium_spacing"
+                android:layout_weight="50"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/humidity"
+                    android:textColor="@color/description"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtHumidity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/description_grey"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/normal_spacing"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/medium_spacing"
+                android:layout_marginStart="@dimen/medium_spacing"
+                android:layout_weight="50"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/wind"
+                    android:textColor="@color/description"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtWind"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/description_grey"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/medium_spacing"
+                android:layout_marginStart="@dimen/medium_spacing"
+                android:layout_weight="50"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/sea_level"
+                    android:textColor="@color/description"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtSeaLevel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/description_grey"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnDismiss"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_spacing"
+            android:text="@string/dismiss" />
+    </LinearLayout>
+</RelativeLayout>
