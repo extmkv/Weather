@@ -3,7 +3,7 @@ android {
         app {
             dimension "app"
 
-            def appName = "Weather"
+            def appName = "ForecAsk"
 
             applicationId "com.github.extmkv.weather"
             versionCode 1
