@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bkg_dialog"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btnListen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:clickable="true"
+        android:drawableStart="@mipmap/ic_launcher"
+        android:gravity="center"
+        android:text="@string/tap_to_ask"
+        android:textColor="@color/colorAccent" />
+
+</RelativeLayout>

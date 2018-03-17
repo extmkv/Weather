@@ -26,6 +26,10 @@ import java.util.*
 
 class HomeFragment : LocationFragment<HomeContract.Presenter>(), HomeContract.View {
 
+    companion object {
+        const val ARG_ASK = "ARG_ASK"
+    }
+
     override fun layoutToInflate() = R.layout.fragment_home
 
     override fun createPresenter(): HomeContract.Presenter = HomePresenterImpl(this)
@@ -55,12 +59,18 @@ class HomeFragment : LocationFragment<HomeContract.Presenter>(), HomeContract.Vi
 
     override fun onCreate() {
         super.onCreate()
+
         (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
         requireActivity().setTitle(R.string.app_name)
         setHasOptionsMenu(true)
 
         btnListen.setOnClickListener { openAsk() }
         btnRetry.setOnClickListener { openAsk() }
+
+        if (requireActivity().intent.hasExtra(ARG_ASK)) {
+            requireActivity().intent.removeExtra(ARG_ASK)
+            openAsk()
+        }
     }
 
     override fun onResume() {
