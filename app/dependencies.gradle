@@ -32,7 +32,7 @@ ext {
         /* Lottie */
         implementation "com.airbnb.android:lottie:$lottieVersion"
 
-        /* Faker */
-        implementation "com.github.cesarferreira:faker:$fakerVersion"
+        /* AI API */
+        implementation 'ai.api:sdk:2.0.7'
     }
 }

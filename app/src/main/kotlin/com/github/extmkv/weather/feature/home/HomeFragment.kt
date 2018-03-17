@@ -1,0 +1,99 @@
+package com.github.extmkv.weather.feature.home
+
+import android.content.Intent
+import android.location.Location
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import com.github.extmkv.weather.R
+import com.github.extmkv.weather.base.activity.ActivityArcToolbar
+import com.github.extmkv.weather.base.activity.ActivityToolbar
+import com.github.extmkv.weather.base.fragment.LocationFragment
+import com.github.extmkv.weather.feature.ask.AskDialog
+import com.github.extmkv.weather.feature.forecast.ForecastFragment
+import com.github.extmkv.weather.feature.settings.SettingsFragment
+import com.github.extmkv.weather.model.City
+import com.github.extmkv.weather.model.Entry
+import com.github.extmkv.weather.model.ResultQuery
+import com.github.extmkv.weather.util.PreferenceManager
+import com.massivedisaster.afm.ActivityCall
+import kotlinx.android.synthetic.main.fragment_ask.*
+import kotlinx.android.synthetic.main.param_state_error.*
+import java.util.*
+
+
+class HomeFragment : LocationFragment<HomeContract.Presenter>(), HomeContract.View {
+
+    override fun layoutToInflate() = R.layout.fragment_ask
+
+    override fun createPresenter(): HomeContract.Presenter = HomePresenterImpl(this)
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+
+        inflater.inflate(R.menu.menu_home, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.btnSettings -> {
+                openSettings()
+                return true
+            }
+        }
+
+        return false
+    }
+
+    private fun openSettings() {
+        ActivityCall.init(this, ActivityToolbar::class, SettingsFragment::class)
+                .setRequestCode(SettingsFragment.REQUEST_CODE)
+                .build()
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+        setHasOptionsMenu(true)
+
+        showContent()
+
+        btnListen.setOnClickListener { openAsk() }
+        btnRetry.setOnClickListener {
+            showContent()
+            openAsk()
+        }
+    }
+
+    private fun openAsk() {
+        val dialog = AskDialog()
+        dialog.setTargetFragment(this, AskDialog.REQUEST_CODE)
+        dialog.show(fragmentManager, null)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == AskDialog.REQUEST_CODE && data != null) {
+            presenter.processRequest(requireContext(),
+                    PreferenceManager.getUnits(requireContext()),
+                    data.getSerializableExtra(AskDialog.RESULT_QUERY) as ResultQuery)
+        }
+    }
+
+    override fun openForecast(city: City, items: ArrayList<Entry>, result: ResultQuery) {
+        ActivityCall.init(this, ActivityArcToolbar::class, ForecastFragment::class)
+                .setBundle(ForecastFragment.getBundle(city, items, result))
+                .build()
+    }
+
+    override fun requestLocation(result: ResultQuery) {
+        requestLocation()
+    }
+
+    override fun onLocationFound(location: Location, isLastKnowLocation: Boolean) {
+        presenter.requestForecastByCoordinates(requireContext(),
+                PreferenceManager.getUnits(requireContext()),
+                location.latitude,
+                location.longitude)
+    }
+}

@@ -30,12 +30,6 @@ abstract class FragmentState<T : StateContract.Presenter<*>> : FragmentMVP<T>(),
         return view
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        onCreate()
-    }
-
     override fun showLoading() {
         rtlLoading.start()
         lnrError.visibility = View.GONE
@@ -54,6 +48,8 @@ abstract class FragmentState<T : StateContract.Presenter<*>> : FragmentMVP<T>(),
         rtlLoading.stop()
 
         txtError.text = error
-        btnRetry.setOnClickListener { method?.invoke() }
+        method?.let {
+            btnRetry.setOnClickListener { method.invoke() }
+        }
     }
 }

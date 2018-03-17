@@ -1,3 +1,5 @@
 package com.github.extmkv.weather.model
 
-class City(val name: String)
+import java.io.Serializable
+
+class City(val name: String) : Serializable

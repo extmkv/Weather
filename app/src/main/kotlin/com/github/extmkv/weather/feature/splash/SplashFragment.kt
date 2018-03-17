@@ -2,13 +2,13 @@ package com.github.extmkv.weather.feature.splash
 
 import com.github.extmkv.weather.BuildConfig
 import com.github.extmkv.weather.R
-import com.github.extmkv.weather.base.activity.ActivityArcToolbar
-import com.github.extmkv.weather.feature.home.FragmentHome
+import com.github.extmkv.weather.base.activity.ActivityToolbar
+import com.github.extmkv.weather.feature.home.HomeFragment
 import com.massivedisaster.adal.fragment.AbstractSplashFragment
 import com.massivedisaster.adal.fragment.AbstractSplashFragment.OnFinishSplashScreen
 import com.massivedisaster.afm.ActivityCall
 
-class FragmentSplash : AbstractSplashFragment() {
+class SplashFragment : AbstractSplashFragment() {
 
     override fun layoutToInflate(): Int = R.layout.fragment_splash
 
@@ -24,13 +24,10 @@ class FragmentSplash : AbstractSplashFragment() {
     /**
      * Called after the splash time out.
      */
-    private fun openHome(): OnFinishSplashScreen {
-        return OnFinishSplashScreen {
-            ActivityCall.init(requireContext(), ActivityArcToolbar::class, FragmentHome::class)
-                    .build()
+    private fun openHome(): OnFinishSplashScreen = OnFinishSplashScreen {
+        ActivityCall.init(requireContext(), ActivityToolbar::class, HomeFragment::class)
+                .build()
 
-            requireActivity().finish()
-        }
+        requireActivity().finish()
     }
-
 }

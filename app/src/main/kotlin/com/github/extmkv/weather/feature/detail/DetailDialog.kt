@@ -4,6 +4,9 @@ import android.os.Bundle
 import com.github.extmkv.weather.R
 import com.github.extmkv.weather.base.mvp.DialogMVP
 import com.github.extmkv.weather.model.Entry
+import com.github.extmkv.weather.util.extension.setPercentage
+import com.github.extmkv.weather.util.extension.setPressure
+import com.github.extmkv.weather.util.extension.setWind
 import kotlinx.android.synthetic.main.dialog_detail.*
 
 class DetailDialog : DialogMVP<DetailContract.Presenter>(), DetailContract.View {
@@ -40,10 +43,10 @@ class DetailDialog : DialogMVP<DetailContract.Presenter>(), DetailContract.View 
         imgWeather.setImageResource(entry.weather[0].icon.res)
         txtTitle.text = entry.weather[0].description
 
-        txtHumidity.text = entry.main.humidity.toString()
-        txtPressure.text = entry.main.pressure.toString()
+        txtHumidity.setPercentage(entry.main.humidity)
+        txtPressure.setPressure(entry.main.pressure)
+        txtSeaLevel.setPressure(entry.main.sea_level)
 
-        txtWind.text = entry.wind.speed.toString()
-        txtSeaLevel.text = entry.main.sea_level.toString()
+        txtWind.setWind(entry.wind.speed, "")
     }
 }

@@ -8,9 +8,14 @@ import retrofit2.http.Query
 interface IRequests {
 
     @POST("forecast")
-    fun getForecast(
+    fun getForecastByCoordinates(
             @Query("units") units: String,
             @Query("lat") latitude: Double,
             @Query("lon") longitude: Double): Call<Response<List<Entry>>>
+
+    @POST("forecast")
+    fun getForecastByLocal(
+            @Query("units") units: String,
+            @Query("q") local: String): Call<Response<List<Entry>>>
 
 }

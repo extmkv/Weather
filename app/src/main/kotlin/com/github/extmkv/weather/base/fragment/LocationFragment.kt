@@ -44,16 +44,16 @@ abstract class LocationFragment<T : StateContract.Presenter<*>> : FragmentState<
     override fun onLocationError(locationError: LocationError) {
         when (locationError) {
             LocationError.TIMEOUT -> {
-                showError(getString(R.string.error_getting_your_location), { requestLocation() })
+                showError(getString(R.string.error_getting_your_location))
             }
             else -> {
-                showError(getString(R.string.please_activate_your_location), { requestLocation() })
+                showError(getString(R.string.please_activate_your_location))
             }
         }
     }
 
     override fun onPermissionsDenied() {
-        showError(getString(R.string.error_grant_location_permission), { requestLocation() })
+        showError(getString(R.string.error_grant_location_permission))
     }
 
     override fun onProviderEnabled() {}

@@ -2,7 +2,7 @@ package com.github.extmkv.weather.base.activity
 
 import android.support.v4.app.Fragment
 import com.github.extmkv.weather.R
-import com.github.extmkv.weather.feature.splash.FragmentSplash
+import com.github.extmkv.weather.feature.splash.SplashFragment
 import com.massivedisaster.afm.activity.BaseActivity
 
 class ActivityFullScreen : BaseActivity() {
@@ -11,5 +11,5 @@ class ActivityFullScreen : BaseActivity() {
 
     override fun getContainerViewId(): Int = R.id.frmContainer
 
-    override fun getDefaultFragment(): Class<out Fragment>? = FragmentSplash::class.java
+    override fun getDefaultFragment(): Class<out Fragment>? = SplashFragment::class.java
 }
