@@ -14,7 +14,7 @@
     <string name="pressure">Presión</string>
     <string name="humidity">Humedad</string>
     <string name="wind">Viento</string>
-    <string name="sea_level">Presión del mar</string>
+    <string name="sea_level">Presión mar</string>
     <string name="tap_to_ask">Toca para cuestionar</string>
     <string name="cancel">Cancelar</string>
     <string name="listening">Oíndo...</string>
