@@ -2,6 +2,7 @@ package com.github.extmkv.weather.feature.home
 
 import android.content.Intent
 import android.location.Location
+import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -53,6 +54,7 @@ class HomeFragment : LocationFragment<HomeContract.Presenter>(), HomeContract.Vi
 
     override fun onCreate() {
         super.onCreate()
+        (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
         requireActivity().setTitle(R.string.ask_forecast)
         setHasOptionsMenu(true)
 
