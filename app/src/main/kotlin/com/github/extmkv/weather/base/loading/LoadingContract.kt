@@ -1,9 +1,9 @@
-package com.github.extmkv.weather.base.state
+package com.github.extmkv.weather.base.loading
 
 import com.github.extmkv.weather.base.mvp.BasePresenter
 import com.github.extmkv.weather.base.mvp.BaseView
 
-class StateContract {
+class LoadingContract {
 
     interface View : BaseView {
 
@@ -18,7 +18,7 @@ class StateContract {
         fun showLoading()
 
         /**
-         * Show the error view and add a action to the button "try again".
+         * Show the error view and add an action to the button "try again".
          *
          * @param error Error to be showed.
          * @param method Method to be called when user perform the click on the "try again" button.

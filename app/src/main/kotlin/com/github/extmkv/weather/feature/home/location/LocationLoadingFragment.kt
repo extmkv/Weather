@@ -1,15 +1,15 @@
-package com.github.extmkv.weather.base.fragment
+package com.github.extmkv.weather.feature.home.location
 
 import android.content.Intent
 import com.github.extmkv.weather.R
-import com.github.extmkv.weather.base.state.FragmentState
-import com.github.extmkv.weather.base.state.StateContract
+import com.github.extmkv.weather.base.loading.LoadingContract
+import com.github.extmkv.weather.base.loading.LoadingFragment
 import com.massivedisaster.location.LocationManager
 import com.massivedisaster.location.listener.OnLocationManager
 import com.massivedisaster.location.utils.LocationError
 
 
-abstract class LocationFragment<T : StateContract.Presenter<*>> : FragmentState<T>(), OnLocationManager {
+abstract class LocationLoadingFragment<T : LoadingContract.Presenter<*>> : LoadingFragment<T>(), OnLocationManager {
 
     private lateinit var locationManager: LocationManager
 

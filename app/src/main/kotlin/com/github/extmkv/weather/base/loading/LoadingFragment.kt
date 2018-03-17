@@ -1,4 +1,4 @@
-package com.github.extmkv.weather.base.state
+package com.github.extmkv.weather.base.loading
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.fragment_state.*
 import kotlinx.android.synthetic.main.param_state_error.*
 import kotlinx.android.synthetic.main.param_state_loading.*
 
-abstract class FragmentState<T : StateContract.Presenter<*>> : FragmentMVP<T>(), StateContract.View {
+abstract class LoadingFragment<T : LoadingContract.Presenter<*>> : FragmentMVP<T>(), LoadingContract.View {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_state, container, false)

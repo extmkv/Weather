@@ -9,9 +9,9 @@ import android.view.MenuItem
 import com.github.extmkv.weather.R
 import com.github.extmkv.weather.base.activity.ActivityArcToolbar
 import com.github.extmkv.weather.base.activity.ActivityToolbar
-import com.github.extmkv.weather.base.fragment.LocationFragment
 import com.github.extmkv.weather.feature.ask.AskDialog
 import com.github.extmkv.weather.feature.forecast.ForecastFragment
+import com.github.extmkv.weather.feature.home.location.LocationLoadingFragment
 import com.github.extmkv.weather.feature.settings.SettingsFragment
 import com.github.extmkv.weather.model.City
 import com.github.extmkv.weather.model.Entry
@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.param_state_error.*
 import java.util.*
 
 
-class HomeFragment : LocationFragment<HomeContract.Presenter>(), HomeContract.View {
+class HomeLoadingFragment : LocationLoadingFragment<HomeContract.Presenter>(), HomeContract.View {
 
     override fun layoutToInflate() = R.layout.fragment_ask
 
