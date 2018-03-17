@@ -6,4 +6,23 @@
     <string name="the_precipitation_not_available">"La precipitacíon no esta disponible. "</string>
     <string name="weather_message">%s en %s por las %s.</string>
     <string name="voice_example"><i>\"¿Cómo está el clima en Barcelona?\"\n\"¿Me puedes dicir la temperatura y la velocidad del viento?\"\n\"¿Qual és la precipitación, temperatura y viento en Lisboa?\"</i></string>
+    <string name="dismiss">Cancelar</string>
+    <string name="settings">Ajustes</string>
+    <string name="please_activate_your_location">"Por favor, para continuar activa la ubicación en tu teléfono. "</string>
+    <string name="error_getting_your_location">Error al obter la ubicación</string>
+    <string name="error_grant_location_permission">Por favor, para continuar activa el permiso de la ubicación.</string>
+    <string name="pressure">Presión</string>
+    <string name="humidity">Humedad</string>
+    <string name="wind">Viento</string>
+    <string name="sea_level">Presión del mar</string>
+    <string name="tap_to_ask">Toca para cuestionar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="listening">Oíndo...</string>
+    <string name="tap_and_ask">Toca en el micro</string>
+    <string name="units_summary">La temperatura esta disponibel en las unidades de Fahrenheit, Celsius y Kelvin.</string>
+    <string name="language">Linguaje de voz</string>
+    <string name="english">Inglés</string>
+    <string name="portuguese">Portugués</string>
+    <string name="spanish">Español</string>
+    <string name="language_summary">Las lenguas disponibles son: Inglés, Portugués y Español.</string>
 </resources>
