@@ -5,4 +5,5 @@
     <string name="the_wind_is">La velocidad del viento es %d km/h.</string>
     <string name="the_precipitation_not_available">"La precipitacíon no esta disponible. "</string>
     <string name="weather_message">%s en %s por las %s.</string>
+    <string name="voice_example"><i>\"¿Cómo está el clima en Barcelona?\"\n\"¿Me puedes dicir la temperatura y la velocidad del viento?\"\n\"¿Qual és la precipitación, temperatura y viento en Lisboa?\"</i></string>
 </resources>

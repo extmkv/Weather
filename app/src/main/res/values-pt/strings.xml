@@ -5,4 +5,5 @@
     <string name="the_wind_is">A velocidade do vento é %d km/h.</string>
     <string name="the_temperature_is">A temperatura é %d graus.</string>
     <string name="the_precipitation_not_available">A precepitação não está disponível.</string>
+    <string name="voice_example"><i>\"Como está o tempo?\"\n\"Qual é a velocidade do vento em Lisboa?\"\n\"Por favor, informa-me sobre a temperatura, vento e precepitação em Londres?\"</i></string>
 </resources>

@@ -17,15 +17,16 @@ import com.github.extmkv.weather.model.City
 import com.github.extmkv.weather.model.Entry
 import com.github.extmkv.weather.model.ResultQuery
 import com.github.extmkv.weather.util.PreferenceManager
+import com.github.extmkv.weather.util.extension.getLocaleString
 import com.massivedisaster.afm.ActivityCall
-import kotlinx.android.synthetic.main.fragment_ask.*
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.param_state_error.*
 import java.util.*
 
 
 class HomeFragment : LocationFragment<HomeContract.Presenter>(), HomeContract.View {
 
-    override fun layoutToInflate() = R.layout.fragment_ask
+    override fun layoutToInflate() = R.layout.fragment_home
 
     override fun createPresenter(): HomeContract.Presenter = HomePresenterImpl(this)
 
@@ -55,7 +56,7 @@ class HomeFragment : LocationFragment<HomeContract.Presenter>(), HomeContract.Vi
     override fun onCreate() {
         super.onCreate()
         (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
-        requireActivity().setTitle(R.string.ask_forecast)
+        requireActivity().setTitle(R.string.app_name)
         setHasOptionsMenu(true)
 
         btnListen.setOnClickListener { openAsk() }
@@ -65,6 +66,9 @@ class HomeFragment : LocationFragment<HomeContract.Presenter>(), HomeContract.Vi
     override fun onResume() {
         super.onResume()
         showContent()
+
+        txtExamples.text = getLocaleString(PreferenceManager.getLanguage(requireContext())!!,
+                R.string.voice_example)
     }
 
     private fun openAsk() {

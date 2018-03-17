@@ -11,7 +11,6 @@
     <string name="humidity">Humidity</string>
     <string name="wind">Wind</string>
     <string name="sea_level">Sea Level</string>
-
     <string name="kelvin">Kelvin</string>
     <string name="fahrenheit">Fahrenheit</string>
     <string name="celsius">Celsius</string>
@@ -23,14 +22,10 @@
     <string name="the_wind_is">The wind speed is %d km/h.</string>
     <string name="the_precipitation_not_available">The precipitation is not available!</string>
     <string name="weather_message">%s in %s at %s</string>
-    <string name="ask_forecast">Ask Forecast</string>
-
     <string name="language">Voice language</string>
     <string name="english">English</string>
     <string name="portuguese">Portuguese</string>
     <string name="spanish">Spanish</string>
-
     <string name="language_summary">Languages available are English, Portuguese and Spanish.</string>
-
-
+    <string name="voice_example"><i>\"How is the weather in Barcelona?\"\n\"Can you give the temperature and the wind speed?\"\n\"Please, tell me about the precipitation, temperature and wind in Lisbon?\"</i></string>
 </resources>
