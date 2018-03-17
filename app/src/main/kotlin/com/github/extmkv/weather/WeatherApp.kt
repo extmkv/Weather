@@ -11,11 +11,17 @@ class WeatherApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        initFabric(this)
+        initFabric(this, !BuildConfig.REPORT_CRASH)
     }
 
-    private fun initFabric(context: Context) {
-        val core = CrashlyticsCore.Builder().disabled(!BuildConfig.REPORT_CRASH).build()
+    /**
+     * Initialize the Fabric SDK with Crashlytics Kit.
+     *
+     * @param context The context of the preferences whose values are wanted.
+     * @param disabled The flag to turn on/off the Crashlytics Kit.
+     */
+    private fun initFabric(context: Context, disabled: Boolean) {
+        val core = CrashlyticsCore.Builder().disabled(disabled).build()
         val kit = Crashlytics.Builder().core(core).build()
         Fabric.with(context, kit)
     }

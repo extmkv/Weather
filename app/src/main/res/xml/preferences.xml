@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:defaultValue="kelvin"
+        android:entries="@array/units"
+        android:entryValues="@array/units_values"
+        android:key="PREF_UNITS"
+        android:summary="@string/units_summary"
+        android:title="@string/unit_format" />
+
+    <ListPreference
+        android:defaultValue="en"
+        android:entries="@array/languages"
+        android:entryValues="@array/languages_values"
+        android:key="PREF_LANGUAGE"
+        android:summary="@string/language_summary"
+        android:title="@string/language" />
+
+</PreferenceScreen>

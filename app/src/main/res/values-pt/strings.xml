@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="try_again">Tentar novamente</string>
+    <string name="weather_message">%s em %s às %s</string>
+    <string name="the_wind_is">A velocidade do vento é %d km/h.</string>
+    <string name="the_temperature_is">A temperatura é %d graus.</string>
+    <string name="the_precipitation_not_available">A precepitação não está disponível.</string>
+    <string name="voice_example"><i>\"Como está o tempo?\"\n\"Qual é a velocidade do vento em Lisboa?\"\n\"Por favor, informa-me sobre a temperatura, vento e precepitação em Londres?\"</i></string>
+    <string name="dismiss">Cancelar</string>
+    <string name="unit_format">Formato de unidade</string>
+    <string name="settings">Configurações</string>
+    <string name="please_activate_your_location">Por favor, para continuar active a localização no seu telémovel.</string>
+    <string name="error_getting_your_location">Erro ao obter a sua localização.</string>
+    <string name="error_grant_location_permission">Por favor, para continuar active a permissão de localização.</string>
+    <string name="pressure">Pressão</string>
+    <string name="humidity">Humidade</string>
+    <string name="wind">Vento</string>
+    <string name="sea_level">Pressão do Mar</string>
+    <string name="tap_to_ask">Toque para Questionar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="listening">Ouvindo...</string>
+    <string name="tap_and_ask">Toque no micro</string>
+    <string name="units_summary">A Temperatura está disponível nas unidades Fahrenheit, Celsius e Kelvin.</string>
+    <string name="language">Linguagem de voz</string>
+    <string name="english">Inglês</string>
+    <string name="portuguese">Português</string>
+    <string name="spanish">Espanhol</string>
+    <string name="language_summary">As Linguagens disponíveis são: Inglês, Português e Espanhol.</string>
+</resources>

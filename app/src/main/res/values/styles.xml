@@ -1,11 +1,48 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="preferenceTheme">@style/PreferenceTheme</item>
+        <item name="fontFamily">@font/roboto</item>
+        <item name="buttonStyle">@style/Button</item>
     </style>
 
+    <style name="AppTheme.Fullscreen">
+        <item name="android:windowBackground">@color/bkg_fullscreen</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <style name="AppTheme.ActionBar" parent="Theme.AppCompat">
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+        <item name="actionMenuTextColor">@android:color/white</item>
+    </style>
+
+    <style name="Button" parent="Widget.AppCompat.Button">
+        <item name="android:background">?selectableItemBackground</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:minHeight">@dimen/btn_height</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:paddingLeft">@dimen/extra_large_spacing</item>
+        <item name="android:paddingRight">@dimen/extra_large_spacing</item>
+        <item name="android:textSize">@dimen/text_14</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppTheme.ActionBar.Title" parent="@style/TextAppearance.AppCompat.Headline">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="AppTheme.ActionBar.Title.Collapsed" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="PreferenceTheme" parent="@style/PreferenceThemeOverlay">
+        <item name="android:textColorSecondary">@color/description_grey</item>
+        <item name="android:textColorPrimary">@color/colorPrimary</item>
+        <item name="android:textColorTertiary">@color/description_grey</item>
+    </style>
 </resources>

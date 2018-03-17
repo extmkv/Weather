@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="units_values">
+        <item>kelvin</item>
+        <item>imperial</item>
+        <item>metric</item>
+    </string-array>
+
+    <string-array name="units">
+        <item>@string/kelvin</item>
+        <item>@string/fahrenheit</item>
+        <item>@string/celsius</item>
+    </string-array>
+
+    <string-array name="languages">
+        <item>@string/english</item>
+        <item>@string/portuguese</item>
+        <item>@string/spanish</item>
+    </string-array>
+
+    <string-array name="languages_values">
+        <item>en</item>
+        <item>pt</item>
+        <item>es</item>
+    </string-array>
+
+</resources>
