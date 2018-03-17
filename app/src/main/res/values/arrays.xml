@@ -7,9 +7,21 @@
     </string-array>
 
     <string-array name="units">
-        <item>Kelvin</item>
-        <item>Fahrenheit</item>
-        <item>Celsius</item>
+        <item>@string/kelvin</item>
+        <item>@string/fahrenheit</item>
+        <item>@string/celsius</item>
+    </string-array>
+
+    <string-array name="languages">
+        <item>@string/english</item>
+        <item>@string/portuguese</item>
+        <item>@string/spanish</item>
+    </string-array>
+
+    <string-array name="languages_values">
+        <item>en</item>
+        <item>pt</item>
+        <item>es</item>
     </string-array>
 
 </resources>

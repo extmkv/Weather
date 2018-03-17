@@ -13,15 +13,15 @@ class APIRequests {
             return RetrofitAdapter().adapter
         }
 
-        fun getForecastByCoordinates(callObject: APIRequestCallback<Response<List<Entry>>>, units: String, latitude: Double, longitude: Double): Call<*> {
-            val call = getAdapter().getForecastByCoordinates(units, latitude, longitude)
+        fun getForecastByCoordinates(callObject: APIRequestCallback<Response<List<Entry>>>, language: String, units: String, latitude: Double, longitude: Double): Call<*> {
+            val call = getAdapter().getForecastByCoordinates(language, units, latitude, longitude)
             call.enqueue(callObject)
 
             return call
         }
 
-        fun getForecastByLocal(callObject: APIRequestCallback<Response<List<Entry>>>, units: String, local: String): Call<*> {
-            val call = getAdapter().getForecastByLocal(units, local)
+        fun getForecastByLocal(callObject: APIRequestCallback<Response<List<Entry>>>, language: String, units: String, local: String): Call<*> {
+            val call = getAdapter().getForecastByLocal(language, units, local)
             call.enqueue(callObject)
 
             return call

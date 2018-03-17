@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="try_again">Try again</string>
+    <string name="the_temperature_is">La temperatura es %d grados.</string>
+    <string name="the_wind_is">La velocidad del viento es %d km/h.</string>
+    <string name="the_precipitation_not_available">"La precipitacíon no esta disponible. "</string>
+    <string name="weather_message">%s en %s por las %s.</string>
+</resources>

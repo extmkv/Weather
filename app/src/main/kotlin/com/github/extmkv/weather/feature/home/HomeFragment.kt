@@ -11,7 +11,7 @@ import com.github.extmkv.weather.base.activity.ActivityArcToolbar
 import com.github.extmkv.weather.base.activity.ActivityToolbar
 import com.github.extmkv.weather.feature.ask.AskDialog
 import com.github.extmkv.weather.feature.forecast.ForecastFragment
-import com.github.extmkv.weather.feature.home.location.LocationLoadingFragment
+import com.github.extmkv.weather.feature.home.location.LocationFragment
 import com.github.extmkv.weather.feature.settings.SettingsFragment
 import com.github.extmkv.weather.model.City
 import com.github.extmkv.weather.model.Entry
@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.param_state_error.*
 import java.util.*
 
 
-class HomeLoadingFragment : LocationLoadingFragment<HomeContract.Presenter>(), HomeContract.View {
+class HomeFragment : LocationFragment<HomeContract.Presenter>(), HomeContract.View {
 
     override fun layoutToInflate() = R.layout.fragment_ask
 
@@ -80,6 +80,7 @@ class HomeLoadingFragment : LocationLoadingFragment<HomeContract.Presenter>(), H
 
         if (requestCode == AskDialog.REQUEST_CODE && data != null) {
             presenter.processRequest(requireContext(),
+                    PreferenceManager.getLanguage(requireContext())!!.language,
                     PreferenceManager.getUnits(requireContext()),
                     data.getSerializableExtra(AskDialog.RESULT_QUERY) as ResultQuery)
         }
@@ -97,6 +98,7 @@ class HomeLoadingFragment : LocationLoadingFragment<HomeContract.Presenter>(), H
 
     override fun onLocationFound(location: Location, isLastKnowLocation: Boolean) {
         presenter.requestForecastByCoordinates(requireContext(),
+                PreferenceManager.getLanguage(requireContext())!!.language,
                 PreferenceManager.getUnits(requireContext()),
                 location.latitude,
                 location.longitude)

@@ -10,6 +10,8 @@ class ResultQuery(var city: String? = null,
                   private var types: ArrayList<String> = arrayListOf()) : Serializable {
 
     companion object {
+        const val FORECAST = "forecast"
+
         private const val CITY = "geo-city"
         private const val DATE = "time"
         private const val TYPES = "Type"

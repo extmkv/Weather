@@ -13,15 +13,15 @@ class HomePresenterImpl(val view: HomeContract.View) : HomeContract.Presenter {
 
     lateinit var result: ResultQuery
 
-    override fun processRequest(context: Context, units: String, result: ResultQuery) {
+    override fun processRequest(context: Context, language: String, units: String, result: ResultQuery) {
         this.result = result
 
         result.city?.let {
-            requestForecastByLocal(context, units, it)
+            requestForecastByLocal(context, language, units, it)
         } ?: view.requestLocation(result)
     }
 
-    override fun requestForecastByLocal(context: Context, units: String, local: String) {
+    override fun requestForecastByLocal(context: Context, language: String, units: String, local: String) {
         view.showLoading()
 
         view.addRequestCallback(
@@ -35,10 +35,10 @@ class HomePresenterImpl(val view: HomeContract.View) : HomeContract.Presenter {
                     override fun onError(error: APIError, isServerError: Boolean) {
                         view.showError(error.message)
                     }
-                }, units, local))
+                }, language, units, local))
     }
 
-    override fun requestForecastByCoordinates(context: Context, units: String, latitude: Double, longitude: Double) {
+    override fun requestForecastByCoordinates(context: Context, language: String, units: String, latitude: Double, longitude: Double) {
         view.showLoading()
         view.addRequestCallback(
                 APIRequests.getForecastByCoordinates(object : APIRequestCallback<Response<List<Entry>>>(context) {
@@ -52,6 +52,6 @@ class HomePresenterImpl(val view: HomeContract.View) : HomeContract.Presenter {
                         view.showError(error.message)
 
                     }
-                }, units, latitude, longitude))
+                }, language, units, latitude, longitude))
     }
 }

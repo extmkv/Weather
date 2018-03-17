@@ -9,7 +9,7 @@ import com.massivedisaster.location.listener.OnLocationManager
 import com.massivedisaster.location.utils.LocationError
 
 
-abstract class LocationLoadingFragment<T : LoadingContract.Presenter<*>> : LoadingFragment<T>(), OnLocationManager {
+abstract class LocationFragment<T : LoadingContract.Presenter<*>> : LoadingFragment<T>(), OnLocationManager {
 
     private lateinit var locationManager: LocationManager
 

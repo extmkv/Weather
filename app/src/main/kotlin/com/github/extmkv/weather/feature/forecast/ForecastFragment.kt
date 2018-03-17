@@ -12,6 +12,8 @@ import com.github.extmkv.weather.model.City
 import com.github.extmkv.weather.model.Entry
 import com.github.extmkv.weather.model.ResultQuery
 import com.github.extmkv.weather.util.DateUtil
+import com.github.extmkv.weather.util.PreferenceManager
+import com.github.extmkv.weather.util.extension.getLocaleString
 import kotlinx.android.synthetic.main.fragment_forecast.*
 import java.util.*
 
@@ -37,7 +39,7 @@ class ForecastFragment : FragmentMVP<ForecastContract.Presenter>(), ForecastCont
         }
     }
 
-    private val adapter = ForecastAdapter()
+    private val adapter by lazy { ForecastAdapter() }
 
     override fun layoutToInflate(): Int = R.layout.fragment_forecast
 
@@ -69,7 +71,7 @@ class ForecastFragment : FragmentMVP<ForecastContract.Presenter>(), ForecastCont
 
         textToSpeech = TextToSpeech(requireContext(), TextToSpeech.OnInitListener { status ->
             if (status == TextToSpeech.SUCCESS) {
-                val result = textToSpeech.setLanguage(Locale.US)
+                val result = textToSpeech.setLanguage(PreferenceManager.getLanguage(requireContext()))
                 if (result != TextToSpeech.LANG_MISSING_DATA && result != TextToSpeech.LANG_NOT_SUPPORTED) {
                     speak()
                 }
@@ -81,22 +83,32 @@ class ForecastFragment : FragmentMVP<ForecastContract.Presenter>(), ForecastCont
     private fun speak() {
         val entry = lstEntries[0]
 
-        textToSpeech.speak(getString(R.string.weather_message,
+        textToSpeech.speak(getLocaleString(
+                PreferenceManager.getLanguage(requireContext())!!,
+                R.string.weather_message,
                 entry.weather[0].description, city.name,
                 DateUtil.hourFormatter.format(entry.dt_txt)),
                 TextToSpeech.QUEUE_ADD, null)
 
         var query = ""
         if (resultQuery.hasAskedTemperature()) {
-            query += getString(R.string.the_temperature_is, entry.main.temp.toInt())
+            query += getLocaleString(
+                    PreferenceManager.getLanguage(requireContext())!!,
+                    R.string.the_temperature_is,
+                    entry.main.temp.toInt())
         }
 
         if (resultQuery.hasAskedWind()) {
-            query += getString(R.string.the_wind_is, entry.wind.speed.toInt())
+            query += getLocaleString(
+                    PreferenceManager.getLanguage(requireContext())!!,
+                    R.string.the_wind_is,
+                    entry.wind.speed.toInt())
         }
 
         if (resultQuery.hasAskedPrecipitation()) {
-            query += getString(R.string.the_precipitation_not_available)
+            query += getLocaleString(
+                    PreferenceManager.getLanguage(requireContext())!!,
+                    R.string.the_precipitation_not_available)
         }
 
         textToSpeech.speak(query, TextToSpeech.QUEUE_ADD, null)

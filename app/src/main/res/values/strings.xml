@@ -19,10 +19,18 @@
     <string name="cancel">Cancel</string>
     <string name="listening">Listening…</string>
     <string name="tap_and_ask">Tap mic</string>
-    <string name="the_temperature_is">The temperature is %d.</string>
-    <string name="the_wind_is">The wind is %d.</string>
+    <string name="the_temperature_is">The temperature is %d degrees.</string>
+    <string name="the_wind_is">The wind speed is %d km/h.</string>
     <string name="the_precipitation_not_available">The precipitation is not available!</string>
     <string name="weather_message">%s in %s at %s</string>
     <string name="ask_forecast">Ask Forecast</string>
+
+    <string name="language">Language</string>
+    <string name="english">English</string>
+    <string name="portuguese">Portuguese</string>
+    <string name="spanish">Spanish</string>
+
+    <string name="language_summary">Languages available are English, Portuguese and Spanish.</string>
+
 
 </resources>

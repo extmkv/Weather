@@ -13,6 +13,7 @@ import com.github.extmkv.weather.BuildConfig
 import com.github.extmkv.weather.R
 import com.github.extmkv.weather.base.mvp.DialogMVP
 import com.github.extmkv.weather.model.ResultQuery
+import com.github.extmkv.weather.util.PreferenceManager
 import com.massivedisaster.adal.permissions.PermissionsManager
 import kotlinx.android.synthetic.main.dialog_ask.*
 
@@ -36,7 +37,7 @@ class AskDialog : DialogMVP<AskContract.Presenter>(), AskContract.View, AIListen
         imgMic.setOnClickListener { startListening() }
 
         val config = ai.api.android.AIConfiguration(BuildConfig.AI_CLIENT_ACCESS_TOKEN,
-                AIConfiguration.SupportedLanguages.English,
+                AIConfiguration.SupportedLanguages.fromLanguageTag(PreferenceManager.getLanguage(requireContext())?.language),
                 ai.api.android.AIConfiguration.RecognitionEngine.System)
 
         permissionsManager = PermissionsManager(this)
@@ -72,7 +73,7 @@ class AskDialog : DialogMVP<AskContract.Presenter>(), AskContract.View, AIListen
     override fun onResult(response: AIResponse) {
         val queryResult = response.result
 
-        if (queryResult.parameters != null && !queryResult.parameters.isEmpty() && queryResult.action == "forecast") {
+        if (queryResult.parameters != null && !queryResult.parameters.isEmpty() && queryResult.action == ResultQuery.FORECAST) {
             val result = ResultQuery()
             result.setValues(queryResult)
 

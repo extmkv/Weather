@@ -14,8 +14,8 @@ class HomeContract {
     }
 
     interface Presenter : LoadingContract.Presenter<View> {
-        fun processRequest(context: Context, units: String, result: ResultQuery)
-        fun requestForecastByLocal(context: Context, units: String, local: String)
-        fun requestForecastByCoordinates(context: Context, units: String, latitude: Double, longitude: Double)
+        fun processRequest(context: Context, language: String, units: String, result: ResultQuery)
+        fun requestForecastByLocal(context: Context, language: String, units: String, local: String)
+        fun requestForecastByCoordinates(context: Context, language: String, units: String, latitude: Double, longitude: Double)
     }
 }
