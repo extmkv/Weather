@@ -88,10 +88,7 @@ class HomeFragment : LocationFragment<HomeContract.Presenter>(), HomeContract.Vi
 
         if (dialog.isAdded)
             dialog.dismiss()
-    }
 
-    override fun onStart() {
-        super.onStart()
         showContent()
     }
 
