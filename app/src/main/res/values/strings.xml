@@ -25,7 +25,7 @@
     <string name="weather_message">%s in %s at %s</string>
     <string name="ask_forecast">Ask Forecast</string>
 
-    <string name="language">Language</string>
+    <string name="language">Voice language</string>
     <string name="english">English</string>
     <string name="portuguese">Portuguese</string>
     <string name="spanish">Spanish</string>
