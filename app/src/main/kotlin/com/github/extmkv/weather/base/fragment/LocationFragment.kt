@@ -33,6 +33,11 @@ abstract class LocationFragment<T : StateContract.Presenter<*>> : FragmentState<
         locationManager.onActivityResult(requestCode, resultCode)
     }
 
+    override fun onPause() {
+        super.onPause()
+        locationManager.stopRequestLocation()
+    }
+
     /**
      * Start request for a single location update.
      */

@@ -11,7 +11,8 @@
     </style>
 
     <style name="AppTheme.Fullscreen">
-        <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="android:windowBackground">@color/bkg_fullscreen</item>
+        <item name="android:windowTranslucentStatus">true</item>
     </style>
 
     <style name="AppTheme.ActionBar" parent="Theme.AppCompat">
@@ -44,5 +45,4 @@
         <item name="android:textColorPrimary">@color/colorPrimary</item>
         <item name="android:textColorTertiary">@color/description_grey</item>
     </style>
-
 </resources>

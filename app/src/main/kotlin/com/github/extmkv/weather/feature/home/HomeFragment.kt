@@ -56,10 +56,13 @@ class HomeFragment : LocationFragment<HomeContract.Presenter>(), HomeContract.Vi
         requireActivity().setTitle(R.string.ask_forecast)
         setHasOptionsMenu(true)
 
-        showContent()
-
         btnListen.setOnClickListener { openAsk() }
         btnRetry.setOnClickListener { openAsk() }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        showContent()
     }
 
     private fun openAsk() {

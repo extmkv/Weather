@@ -72,7 +72,7 @@ class AskDialog : DialogMVP<AskContract.Presenter>(), AskContract.View, AIListen
     override fun onResult(response: AIResponse) {
         val queryResult = response.result
 
-        if (queryResult.parameters != null && !queryResult.parameters.isEmpty()) {
+        if (queryResult.parameters != null && !queryResult.parameters.isEmpty() && queryResult.action == "forecast") {
             val result = ResultQuery()
             result.setValues(queryResult)
 

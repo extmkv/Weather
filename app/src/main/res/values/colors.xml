@@ -7,7 +7,9 @@
     <color name="title">#26a69a</color>
     <color name="description">#AA26a69a</color>
     <color name="description_grey">#888888</color>
-    <color name="bkg_dialog">#FEFEFE</color>
+    <color name="bkg_dialog">#EEEDEE</color>
     <color name="divider">#EEEEEE</color>
+
+    <color name="bkg_fullscreen">#EEEDEE</color>
 
 </resources>

@@ -27,7 +27,6 @@ class HomePresenterImpl(val view: HomeContract.View) : HomeContract.Presenter {
         view.addRequestCallback(
                 APIRequests.getForecastByLocal(object : APIRequestCallback<Response<List<Entry>>>(context) {
                     override fun onSuccess(response: Response<List<Entry>>) {
-                        view.showContent()
                         view.openForecast(response.city,
                                 response.list as ArrayList<Entry>,
                                 result)
@@ -44,7 +43,6 @@ class HomePresenterImpl(val view: HomeContract.View) : HomeContract.Presenter {
         view.addRequestCallback(
                 APIRequests.getForecastByCoordinates(object : APIRequestCallback<Response<List<Entry>>>(context) {
                     override fun onSuccess(response: Response<List<Entry>>) {
-                        view.showContent()
                         view.openForecast(response.city,
                                 response.list as ArrayList<Entry>,
                                 result)
