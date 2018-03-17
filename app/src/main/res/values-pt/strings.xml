@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="try_again">Try again</string>
+    <string name="try_again">Tentar novamente</string>
     <string name="weather_message">%s em %s às %s</string>
     <string name="the_wind_is">A velocidade do vento é %d km/h.</string>
     <string name="the_temperature_is">A temperatura é %d graus.</string>

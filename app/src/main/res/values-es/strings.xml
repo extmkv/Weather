@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="try_again">Try again</string>
+    <string name="try_again">Inténtalo de nuevo</string>
     <string name="the_temperature_is">La temperatura es %d grados.</string>
     <string name="the_wind_is">La velocidad del viento es %d km/h.</string>
     <string name="the_precipitation_not_available">"La precipitacíon no esta disponible. "</string>
     <string name="weather_message">%s en %s por las %s.</string>
-    <string name="voice_example"><i>\"¿Cómo está el clima en Barcelona?\"\n\"¿Me puedes dicir la temperatura y la velocidad del viento?\"\n\"¿Qual és la precipitación, temperatura y viento en Lisboa?\"</i></string>
+    <string name="voice_example"><i>\"¿Cómo está el clima en Barcelona?\"\n\"¿Me puedes dicir la temperatura y la velocidad del viento?\"\n\"¿Qual es la precipitación, temperatura y el viento en Lisboa?\"</i></string>
     <string name="dismiss">Cancelar</string>
     <string name="settings">Ajustes</string>
     <string name="please_activate_your_location">"Por favor, para continuar activa la ubicación en tu teléfono. "</string>
@@ -25,4 +25,5 @@
     <string name="portuguese">Portugués</string>
     <string name="spanish">Español</string>
     <string name="language_summary">Las lenguas disponibles son: Inglés, Portugués y Español.</string>
+    <string name="unit_format">Formato de la unidad</string>
 </resources>
