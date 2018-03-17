@@ -30,13 +30,15 @@ class PreferenceManager {
          *
          * @param context The context of the preferences whose values are wanted.
          */
-        fun getLanguage(context: Context): Locale? {
+        fun getLanguage(context: Context): Locale {
             val sharedPref = PreferenceManager.getDefaultSharedPreferences(context)
 
-            val locale = sharedPref.getString(PREF_LANGUAGE, "en")
-            return Locale.getAvailableLocales().find {
-                it.toString() == locale
+            val lang = sharedPref.getString(PREF_LANGUAGE, "en")
+            val locale = Locale.getAvailableLocales().find {
+                it.toString() == lang
             }
+
+            return locale ?: Locale.US
         }
     }
 }

@@ -84,7 +84,7 @@ class ForecastFragment : FragmentMVP<ForecastContract.Presenter>(), ForecastCont
         val entry = lstEntries[0]
 
         textToSpeech.speak(getLocaleString(
-                PreferenceManager.getLanguage(requireContext())!!,
+                PreferenceManager.getLanguage(requireContext()),
                 R.string.weather_message,
                 entry.weather[0].description, city.name,
                 DateUtil.hourFormatter.format(entry.dt_txt)),
@@ -93,21 +93,21 @@ class ForecastFragment : FragmentMVP<ForecastContract.Presenter>(), ForecastCont
         var query = ""
         if (resultQuery.hasAskedTemperature()) {
             query += getLocaleString(
-                    PreferenceManager.getLanguage(requireContext())!!,
+                    PreferenceManager.getLanguage(requireContext()),
                     R.string.the_temperature_is,
                     entry.main.temp.toInt())
         }
 
         if (resultQuery.hasAskedWind()) {
             query += getLocaleString(
-                    PreferenceManager.getLanguage(requireContext())!!,
+                    PreferenceManager.getLanguage(requireContext()),
                     R.string.the_wind_is,
                     entry.wind.speed.toInt())
         }
 
         if (resultQuery.hasAskedPrecipitation()) {
             query += getLocaleString(
-                    PreferenceManager.getLanguage(requireContext())!!,
+                    PreferenceManager.getLanguage(requireContext()),
                     R.string.the_precipitation_not_available)
         }
 

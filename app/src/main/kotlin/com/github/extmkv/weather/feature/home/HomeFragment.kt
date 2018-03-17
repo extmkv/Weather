@@ -30,6 +30,8 @@ class HomeFragment : LocationFragment<HomeContract.Presenter>(), HomeContract.Vi
         const val ARG_ASK = "ARG_ASK"
     }
 
+    private val dialog by lazy { AskDialog() }
+
     override fun layoutToInflate() = R.layout.fragment_home
 
     override fun createPresenter(): HomeContract.Presenter = HomePresenterImpl(this)
@@ -77,14 +79,20 @@ class HomeFragment : LocationFragment<HomeContract.Presenter>(), HomeContract.Vi
         super.onResume()
         showContent()
 
-        txtExamples.text = getLocaleString(PreferenceManager.getLanguage(requireContext())!!,
+        txtExamples.text = getLocaleString(PreferenceManager.getLanguage(requireContext()),
                 R.string.voice_example)
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        if (dialog.isAdded)
+            dialog.dismiss()
     }
 
     private fun openAsk() {
         showContent()
 
-        val dialog = AskDialog()
         dialog.setTargetFragment(this, AskDialog.REQUEST_CODE)
         dialog.show(fragmentManager, null)
     }
@@ -94,7 +102,7 @@ class HomeFragment : LocationFragment<HomeContract.Presenter>(), HomeContract.Vi
 
         if (requestCode == AskDialog.REQUEST_CODE && data != null) {
             presenter.processRequest(requireContext(),
-                    PreferenceManager.getLanguage(requireContext())!!.language,
+                    PreferenceManager.getLanguage(requireContext()).language,
                     PreferenceManager.getUnits(requireContext()),
                     data.getSerializableExtra(AskDialog.RESULT_QUERY) as ResultQuery)
         }
@@ -112,7 +120,7 @@ class HomeFragment : LocationFragment<HomeContract.Presenter>(), HomeContract.Vi
 
     override fun onLocationFound(location: Location, isLastKnowLocation: Boolean) {
         presenter.requestForecastByCoordinates(requireContext(),
-                PreferenceManager.getLanguage(requireContext())!!.language,
+                PreferenceManager.getLanguage(requireContext()).language,
                 PreferenceManager.getUnits(requireContext()),
                 location.latitude,
                 location.longitude)
