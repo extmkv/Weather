@@ -12,6 +12,7 @@ An android forecast assistant, develop in 24 hours.
 * DialogFlow for natural human speech. (API.AI)
 
 ## Notes
+* Please build appQA variant
 * Don't forget to turn on the sound on your device :)
 * You can add thw widget to your Home screen. In this way you only need to unlock your phone and touch in the widget.
 * If you ask for a weather information without giving the location the app will try to get the user location.
