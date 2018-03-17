@@ -11,9 +11,9 @@
     <string name="humidity">Humidity</string>
     <string name="wind">Wind</string>
     <string name="sea_level">Sea Level</string>
-    <string name="kelvin">Kelvin</string>
-    <string name="fahrenheit">Fahrenheit</string>
-    <string name="celsius">Celsius</string>
+    <string name="kelvin" translatable="false">Kelvin</string>
+    <string name="fahrenheit" translatable="false">Fahrenheit</string>
+    <string name="celsius" translatable="false">Celsius</string>
     <string name="tap_to_ask">Tap to Ask</string>
     <string name="cancel">Cancel</string>
     <string name="listening">Listening…</string>

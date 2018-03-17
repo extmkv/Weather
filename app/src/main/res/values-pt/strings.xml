@@ -6,4 +6,24 @@
     <string name="the_temperature_is">A temperatura é %d graus.</string>
     <string name="the_precipitation_not_available">A precepitação não está disponível.</string>
     <string name="voice_example"><i>\"Como está o tempo?\"\n\"Qual é a velocidade do vento em Lisboa?\"\n\"Por favor, informa-me sobre a temperatura, vento e precepitação em Londres?\"</i></string>
+    <string name="dismiss">Cancelar</string>
+    <string name="unit_format">Formato de unidade</string>
+    <string name="settings">Configurações</string>
+    <string name="please_activate_your_location">Por favor, para continuar ative a localização no deu telémovel.</string>
+    <string name="error_getting_your_location">Error ao obter a sua localização.</string>
+    <string name="error_grant_location_permission">Por favor, para continuar active a permissão de localização.</string>
+    <string name="pressure">Pressão</string>
+    <string name="humidity">Humidade</string>
+    <string name="wind">Vento</string>
+    <string name="sea_level">Pressão do Mar</string>
+    <string name="tap_to_ask">Toque para Questionar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="listening">Escutando...</string>
+    <string name="tap_and_ask">Toque no micro</string>
+    <string name="units_summary">A Temperatura está disponível nas unidades Fahrenheit, Celsius and Kelvin.</string>
+    <string name="language">Linguagem de voz</string>
+    <string name="english">Inglês</string>
+    <string name="portuguese">Português</string>
+    <string name="spanish">Espanhol</string>
+    <string name="language_summary">As Linguagens disponíveis são: Inglês, Português e Espanhol.</string>
 </resources>
