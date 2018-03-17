@@ -73,12 +73,12 @@ class HomeFragment : LocationFragment<HomeContract.Presenter>(), HomeContract.Vi
             requireActivity().intent.removeExtra(ARG_ASK)
             openAsk()
         }
+
+        showContent()
     }
 
     override fun onResume() {
         super.onResume()
-        showContent()
-
         txtExamples.text = getLocaleString(PreferenceManager.getLanguage(requireContext()),
                 R.string.voice_example)
     }
@@ -88,6 +88,11 @@ class HomeFragment : LocationFragment<HomeContract.Presenter>(), HomeContract.Vi
 
         if (dialog.isAdded)
             dialog.dismiss()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        showContent()
     }
 
     private fun openAsk() {

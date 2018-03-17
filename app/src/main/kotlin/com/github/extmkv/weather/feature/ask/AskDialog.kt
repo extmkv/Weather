@@ -67,7 +67,7 @@ class AskDialog : DialogMVP<AskContract.Presenter>(), AskContract.View, AIListen
             override fun onDenied(neverAskMeAgain: Boolean) {
                 showMic()
             }
-        }, Manifest.permission.RECORD_AUDIO)
+        }, Manifest.permission.RECORD_AUDIO, Manifest.permission.ACCESS_COARSE_LOCATION)
     }
 
     override fun onResult(response: AIResponse) {
