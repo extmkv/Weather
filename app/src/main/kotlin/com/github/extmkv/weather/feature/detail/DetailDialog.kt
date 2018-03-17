@@ -40,13 +40,14 @@ class DetailDialog : DialogMVP<DetailContract.Presenter>(), DetailContract.View 
     override fun onCreate() {
         btnDismiss.setOnClickListener { dismiss() }
 
-        imgWeather.setImageResource(entry.weather[0].icon.res)
-        txtTitle.text = entry.weather[0].description
+        with(entry) {
+            imgWeather.setImageResource(weather[0].icon.res)
+            txtTitle.text = weather[0].description
 
-        txtHumidity.setPercentage(entry.main.humidity)
-        txtPressure.setPressure(entry.main.pressure)
-        txtSeaLevel.setPressure(entry.main.sea_level)
-
-        txtWind.setWind(entry.wind.speed, "")
+            txtHumidity.setPercentage(main.humidity)
+            txtPressure.setPressure(main.pressure)
+            txtSeaLevel.setPressure(main.sea_level)
+            txtWind.setWind(wind.speed, "km/h")
+        }
     }
 }

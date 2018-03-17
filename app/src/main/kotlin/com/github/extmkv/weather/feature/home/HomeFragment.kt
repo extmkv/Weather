@@ -53,18 +53,18 @@ class HomeFragment : LocationFragment<HomeContract.Presenter>(), HomeContract.Vi
 
     override fun onCreate() {
         super.onCreate()
+        requireActivity().setTitle(R.string.ask_forecast)
         setHasOptionsMenu(true)
 
         showContent()
 
         btnListen.setOnClickListener { openAsk() }
-        btnRetry.setOnClickListener {
-            showContent()
-            openAsk()
-        }
+        btnRetry.setOnClickListener { openAsk() }
     }
 
     private fun openAsk() {
+        showContent()
+
         val dialog = AskDialog()
         dialog.setTargetFragment(this, AskDialog.REQUEST_CODE)
         dialog.show(fragmentManager, null)

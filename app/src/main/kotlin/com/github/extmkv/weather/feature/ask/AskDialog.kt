@@ -9,7 +9,6 @@ import android.Manifest
 import android.content.DialogInterface
 import android.content.Intent
 import android.view.View
-import android.widget.Toast
 import com.github.extmkv.weather.BuildConfig
 import com.github.extmkv.weather.R
 import com.github.extmkv.weather.base.mvp.DialogMVP
@@ -40,12 +39,22 @@ class AskDialog : DialogMVP<AskContract.Presenter>(), AskContract.View, AIListen
                 AIConfiguration.SupportedLanguages.English,
                 ai.api.android.AIConfiguration.RecognitionEngine.System)
 
+        permissionsManager = PermissionsManager(this)
         aiService = AIService.getService(requireContext(), config)
         aiService.setListener(this)
 
-        permissionsManager = PermissionsManager(this)
 
         startListening()
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        permissionsManager.onPermissionResult(requestCode)
+    }
+
+    override fun onDismiss(dialog: DialogInterface?) {
+        aiService.stopListening()
+        aiService.cancel()
+        super.onDismiss(dialog)
     }
 
     private fun startListening() {
@@ -60,38 +69,14 @@ class AskDialog : DialogMVP<AskContract.Presenter>(), AskContract.View, AIListen
         }, Manifest.permission.RECORD_AUDIO)
     }
 
-    override fun onDismiss(dialog: DialogInterface?) {
-        aiService.stopListening()
-        aiService.cancel()
-        super.onDismiss(dialog)
-    }
-
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
-        permissionsManager.onPermissionResult(requestCode)
-    }
-
     override fun onResult(response: AIResponse) {
         val queryResult = response.result
 
-        // Get parameters
-        //TODO
-        var parameterString = ""
         if (queryResult.parameters != null && !queryResult.parameters.isEmpty()) {
-            for ((key, value) in queryResult.parameters) {
-                parameterString += "($key, $value) "
-            }
-
             val result = ResultQuery()
             result.setValues(queryResult)
 
             sendResult(result)
-
-            Toast.makeText(requireContext(),
-                    "Query:" + queryResult.resolvedQuery +
-                            "\nAction: " + queryResult.action +
-                            "\nParameters: " + parameterString, Toast.LENGTH_LONG).show()
-
-            dismiss()
         }
 
         showMic()
@@ -105,8 +90,6 @@ class AskDialog : DialogMVP<AskContract.Presenter>(), AskContract.View, AIListen
 
     override fun onError(error: AIError) {
         showMic()
-
-        Toast.makeText(requireContext(), error.toString(), Toast.LENGTH_SHORT).show()
     }
 
     override fun onListeningStarted() {
@@ -120,6 +103,7 @@ class AskDialog : DialogMVP<AskContract.Presenter>(), AskContract.View, AIListen
         intent.putExtra(RESULT_QUERY, result)
         targetFragment?.onActivityResult(
                 targetRequestCode, REQUEST_CODE, intent)
+        dismiss()
     }
 
     override fun onAudioLevel(level: Float) {

@@ -16,9 +16,13 @@ fun TextView.setPercentage(value: Float) {
 }
 
 fun TextView.setPressure(value: Double) {
-    text = String.format("%s hPa", value)
+    text = String.format("%s hPa", value.toInt())
 }
 
 fun TextView.setWind(value: Double, metric: String) {
-    text = String.format("%s %s", value, metric)
+    text = String.format("%s %s", value.toInt(), metric)
+}
+
+fun TextView.setTemperature(value: Double) {
+    text = String.format("%sº", value.toInt())
 }
