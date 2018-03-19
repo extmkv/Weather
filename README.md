@@ -1,21 +1,21 @@
 # ForecAsk
 
-An android forecast assistant, develop in 24 hours.
+An android forecast assistant, developed in 24 hours.
 
 ## About
 
-* Create an assistant to ask about the weather: temperature, pressure and precipitation
+* A voice assistant that can get information about the weather for a specific place: temperature, pressure and precipitation
 * Multi language support: English, Portuguese and Spanish
-* Show information about the weather base on location
+* Show information about the weather base on user location
 * MVP Android Example used. (Need to add Dagger2)
 * Language used: Kotlin
-* Some libraries used are developed by me (ADAL, AFM). For more information check my GitHub Page
+* Some of thelibraries used are developed by me (ADAL, AFM). For more information check my GitHub Page
 * DialogFlow for natural human speech. (API.AI)
 
 ## Notes
 * Please build appQA variant
 * Don't forget to turn on the sound on your device :)
-* You can add thw widget to your Home screen. In this way you only need to unlock your phone and touch in the widget
+* You can add the widget to your Home screen. In this way you only need to unlock your phone and touch in the widget
 * If you ask for a weather information without giving the location the app will try to get the user location
 
 <div align="center">
